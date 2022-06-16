@@ -6,8 +6,8 @@ import { getRandomJoke } from "../../api/getRandomJoke";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import CommentIcon from '@mui/icons-material/Comment';
-import IconButton from '@mui/material/IconButton';
+// import CommentIcon from '@mui/icons-material/Comment';
+// import IconButton from '@mui/material/IconButton';
 import ListItemButton from '@mui/material/ListItemButton'
 
 const App: FC = () => {
@@ -22,27 +22,21 @@ const App: FC = () => {
   if (!categories) return null
 
   return (
-      <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-        <button onClick={() => setCategories([...categories].reverse())} >elo</button>
-        {categories.map((element: string, index: number) => (
-          <ListItemButton>
-            <ListItem
-              key={index}
-              disableGutters
-              secondaryAction={
-                <IconButton aria-label="comment">
-                  <CommentIcon onClick={() => { getRandomJoke(element, setError) }} />
-                </IconButton>
-              }>
-
-              <ListItemText primary={element} />
-
-            </ListItem>
+    <div>
+      <List dense sx={{ width: '100%', maxWidth: 360}}>
+      <button onClick={() => setCategories([...categories].reverse())} >elo</button>
+      {categories.map((element: string, index: number) => (
+        <ListItem
+          key={index}
+          disableGutters>
+          <ListItemButton onClick={() => { getRandomJoke(element, setError) }}>
+            <ListItemText primary={element}  />
           </ListItemButton>
-        )
-        )}
-        {error ? <p>{error}</p> : null}
-      </List>
+        </ListItem>
+      ))}
+      {error ? <p>{error}</p> : null}
+    </List>
+    </div>
   );
 }
 
