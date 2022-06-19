@@ -1,6 +1,6 @@
 import { useState, useEffect, FC } from "react";
 
-import HeadOfList from '../head/HeadOfList'
+import HeadOfList from '../head/HeadOfList';
 import BodyOfList from "../body/BodyOfList";
 import { getCategories } from "../../api/getCategories";
 import { useStyle } from "../styles/styles";
@@ -16,9 +16,9 @@ const App: FC = () => {
 
   useEffect(() => {
     getCategories(setCategories, setError)
-  }, [])
+  }, []);
 
-  if (!categories) return null
+  if (!categories) return null;
 
   return (
     <ThemeProvider theme={theme}>
@@ -37,6 +37,6 @@ const App: FC = () => {
       </TableContainer>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

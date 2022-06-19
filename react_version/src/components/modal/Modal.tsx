@@ -1,30 +1,12 @@
-import {FC, useState} from 'react';
+import { FC } from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-
-const style = {
-  position: 'absolute' as 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
-
-type Tmodal = {
-    category: string
-    joke: string,
-    setJoke: (arg: string) => void,
-    open: boolean,
-    setOpen: (arg: boolean) => void
-}
+import { useStyle } from '../styles/styles'
+import { Tmodal } from '../types/Tmodal';
 
 const BasicModal:FC<Tmodal> = ({category, joke, open, setOpen, setJoke }) => {
+  const classes = useStyle();
   return (
     <div>
       <Modal
@@ -32,10 +14,8 @@ const BasicModal:FC<Tmodal> = ({category, joke, open, setOpen, setJoke }) => {
         onClose={() => {
             setOpen(false)
             setJoke('')}}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box className={classes.modal}>
           <Typography variant="h6" component="h2">
             {`Category: ${category}`}
           </Typography>
@@ -48,4 +28,4 @@ const BasicModal:FC<Tmodal> = ({category, joke, open, setOpen, setJoke }) => {
   );
 }
 
-export default BasicModal
+export default BasicModal;

@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useState } from 'react';
 import { Tbody } from '../types/Tbody';
 
 import { getRandomJoke } from '../../api/getRandomJoke';
@@ -9,20 +9,20 @@ import {
   IconButton
 } from "@mui/material";
 import MessageIcon from '@mui/icons-material/Message';
-import { useStyle } from '../styles/styles'
+import { useStyle } from '../styles/styles';
 import BasicModal from '../modal/Modal';
 
 
 const BodyOfList:FC<Tbody> = ({categories, error, setError}) => {
-  const classes = useStyle()
-  const [category, setCategory] = useState<string>('category')
-  const [joke, setJoke] = useState<string>('elo')
+  const classes = useStyle();
+  const [category, setCategory] = useState<string>('category');
+  const [joke, setJoke] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
 
   const getJoke = (category: string, setError: (arg: string) =>void, setJoke: (arg: string) =>void) => {
-      getRandomJoke(category, setError, setJoke)
-      setOpen(true)
-      setCategory(category)
+      getRandomJoke(category, setError, setJoke);
+      setOpen(true);
+      setCategory(category);
   }
 
   return (
@@ -35,7 +35,6 @@ const BodyOfList:FC<Tbody> = ({categories, error, setError}) => {
           </TableCell>
           <TableCell align='center'>
             <IconButton
-              // onClick={() => { getRandomJoke(element, setError, setJoke) }}
               onClick={ () => getJoke(element, setError, setJoke)}
               size="small">
               <MessageIcon />
@@ -47,7 +46,7 @@ const BodyOfList:FC<Tbody> = ({categories, error, setError}) => {
     </TableBody>
     <BasicModal category={category} joke={joke} setJoke={setJoke} open={open} setOpen={setOpen} />
     </>
-  )
-}
+  );
+};
 
-export default BodyOfList
+export default BodyOfList;

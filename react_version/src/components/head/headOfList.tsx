@@ -13,7 +13,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 const HeadOfList: FC<Thead> = ({ sortingArrow, setSortingArrow, categories, setCategories }) => {
-  const classes = useStyle()
+  const classes = useStyle();
   return (
     <TableHead>
       <TableRow>
@@ -21,8 +21,8 @@ const HeadOfList: FC<Thead> = ({ sortingArrow, setSortingArrow, categories, setC
           <Box
             className={classes.tableHeadBox}
             onClick={() => {
-              setSortingArrow(sortingArrow ? false : true)
-              setCategories([...categories].reverse())
+              setSortingArrow(sortingArrow ? false : true);
+              setCategories([...categories].reverse());
             }}>
             <Typography variant='h6'>
               Categories
@@ -40,6 +40,6 @@ const HeadOfList: FC<Thead> = ({ sortingArrow, setSortingArrow, categories, setC
       </TableRow>
     </TableHead>
   )
-}
+};
 
-export default HeadOfList
+export default HeadOfList;

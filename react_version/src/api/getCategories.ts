@@ -4,9 +4,9 @@ export const getCategories = (setCategories: (arg: string[]) => void, setError: 
     const categoriesURL = 'https://api.chucknorris.io/jokes/categories';
     axios.get(categoriesURL)
       .then((response) => {
-        setCategories(response.data.sort())
+        setCategories(response.data.sort());
       })
       .catch((error) => {
-        setError(error)
+        setError(error);
       })
   };

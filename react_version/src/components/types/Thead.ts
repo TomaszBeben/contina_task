@@ -3,4 +3,4 @@ export type Thead = {
     setSortingArrow: (arg: boolean) => void,
     categories: string[],
     setCategories: (arg: string[]) => void
-  }
+  };
