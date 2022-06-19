@@ -7,7 +7,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - nuxt_version',
-    title: 'nuxt_version',
+    title: 'contina_task',
     htmlAttrs: {
       lang: 'en',
     },
@@ -17,7 +17,7 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -35,7 +35,14 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/google-fonts'
   ],
+
+  googleFonts:{
+    families:{
+      Source_Sans_Pro: [400, 600]
+    }
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
